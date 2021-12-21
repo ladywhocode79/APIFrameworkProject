@@ -4,7 +4,10 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import util.ReusableMethods;
 
 import java.io.*;
 import java.util.Properties;
@@ -37,7 +40,11 @@ public class Utils {
         properties.load(fileInputStream);
         return properties.getProperty(key);
 
-
-
+    }
+    //to get key value pair from json path
+    public String getJsonPath(Response response, String key){
+        String stringResponse = response.asString();
+        JsonPath jsonPath = ReusableMethods.rawToJson(stringResponse);
+        return jsonPath.get(key);
     }
 }

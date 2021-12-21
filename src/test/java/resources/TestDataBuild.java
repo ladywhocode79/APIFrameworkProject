@@ -25,4 +25,10 @@ public class TestDataBuild {
         place.setLocation(location);
         return place;
     }
+    public String deletePlace(String place_id){
+        return"{\n" +
+                "   \"place_id\": \""+place_id+"\"\n" +
+                "}";
+
+    }
 }
