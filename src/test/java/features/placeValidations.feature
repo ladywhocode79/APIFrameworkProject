@@ -1,6 +1,6 @@
 Feature: Validating Place API's
 
-  @AddPlace
+  @AddPlace @Regression
   Scenario Outline: Verify if Place is being added successfully added using AddPlaceAPI
     Given Add Place Payload with "<name>" "<language>" "<address>"
     When User calls "AddPlaceAPI" with "POST" Http request
@@ -15,7 +15,7 @@ Feature: Validating Place API's
       | AAHouse | English  | World Cross Centre  |
       | BBHouse | Spanish  | World Cross Central |
 
-  @DeletePlace
+  @DeletePlace @Regression
     Scenario: Verify if Delete Place API is working
       Given DeletePlace payload
       When User calls "deletePlaceAPI" with "POST" Http request
